@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 
 
@@ -16,7 +16,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
 
   ],
   providers: [],
