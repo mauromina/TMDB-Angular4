@@ -5,11 +5,18 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+
+import { TmdbService } from './tmdb.service';
+import { HelperDefault } from './helper-default';
+
+import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    PopularMoviesComponent,
     
   ],
   imports: [
@@ -20,7 +27,11 @@ import { AppComponent } from './app.component';
     MaterialModule
 
   ],
-  providers: [],
+  providers: [
+    TmdbService,
+    HelperDefault
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
