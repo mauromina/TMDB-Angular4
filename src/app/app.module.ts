@@ -11,12 +11,14 @@ import { TmdbService } from './tmdb.service';
 import { HelperDefault } from './helper-default';
 
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
+import { PopularActorsComponent } from './popular-actors/popular-actors.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PopularMoviesComponent,
+    PopularActorsComponent,
     
   ],
   imports: [
