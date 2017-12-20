@@ -2,20 +2,25 @@
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 body {
-    margin: 0;
+    margin: 3%;
     font-family: Roboto, sans-serif;
+    background: url(assets/images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
-  
+
   mat-card {
     max-width: 80%;
     margin: 2em auto;
     text-align: center;
   }
-  
+
   mat-toolbar-row {
     justify-content: space-between;
   }
-  
+
   .done {
     position: fixed;
     bottom: 20px;
