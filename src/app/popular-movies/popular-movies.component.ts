@@ -9,7 +9,8 @@ import { HelperDefault } from '../helper-default';
 })
 export class PopularMoviesComponent implements OnInit {
 
-  private movies = []
+  private movies = [];
+  private title = 'Popular Movies';
 
   constructor(
     private tmdbService: TmdbService,
@@ -19,7 +20,7 @@ export class PopularMoviesComponent implements OnInit {
   ngOnInit() {
     this.tmdbService.getPopularMovies()
       .subscribe(movies => {
-        this.movies = movies.results.slice(0, 9);
+        this.movies = movies.results.slice(0, 12);
       });
   }
 

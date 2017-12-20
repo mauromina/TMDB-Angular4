@@ -9,6 +9,7 @@ export class TmdbService {
   private url = 'https://api.themoviedb.org/3/';
   private apiKey = 'd025b160afef117e0b1bfa0bd432b372';
   private language = 'en-US';
+  private adult = 'false';
 
   constructor(private http: Http) { }
 
@@ -16,7 +17,7 @@ export class TmdbService {
    * @param {query:string} Cadena que conforma la busqueda a ser realizada por el metodo
    * @return {:string} Devuelve el resultado de la consulta a la api en formato json
    * */
-   get(search: string, extra_puts=""): Observable<any> {
+   get(search: string, extra_puts = ""): Observable<any> {
      return this.http.get(`${this.url}${search}?api_key=${this.apiKey}&language=${this.language}${extra_puts}`)
       .map(response => {
         return response.json();

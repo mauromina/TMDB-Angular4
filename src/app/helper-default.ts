@@ -1,12 +1,13 @@
 export class HelperDefault {
-    
-    baseUrlSrc = "http://image.tmdb.org/t/p/w300";
-  
+
+    baseUrlSrc = 'http://image.tmdb.org/t/p/w300';
+
   constructor() { }
   /**Metodo encargado de devolver las url completas para los recursos
    * @param {src:string} Identificador del recurso
    * @return {:string} Url completa del recurso */
-  getUrlSrc(src: string): string {
+
+   getUrlSrc(src: string): string {
     if(src){
     return `${this.baseUrlSrc}${src}`;
     }else{
