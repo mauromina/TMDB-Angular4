@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TmdbService } from '../tmdb.service';
 import { HelperDefault } from '../helper-default';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-popular-movies',
@@ -15,6 +16,7 @@ export class PopularMoviesComponent implements OnInit {
   constructor(
     private tmdbService: TmdbService,
     private tmdbHelper: HelperDefault,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class PopularMoviesComponent implements OnInit {
   }
 
   goMovie(id: number): void{
-    /*this.router.navigate(['/movie', id]);*/
+    this.router.navigate(['/movie', id]);
   }
 
 }
