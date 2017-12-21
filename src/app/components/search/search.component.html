@@ -10,9 +10,9 @@
           <input type="text" class="form-control" placeholder="movie, person, series" [(ngModel)]="query" name="query" (ngModelChange)="queryTyping()">
           <div *ngIf="persons" class="pull-right query-list">
             <div class="person-tile" *ngFor="let person of persons">
-              <a (click)="goProfile(person.id);">
+              <a (click)="goProfile(person.id, person.media_type);">
                 <div class="profile-image">
-                  <img src="{{tmdbHelper.getUrlSrc(person.poster_path)}}" style="width: 25px; margin-right: 10px;" />{{person.original_name}} {{person.title}}
+                  <img src="{{tmdbHelper.getUrlSrc(person.poster_path)}}" style="width: 25px; margin-right: 10px;" />{{person.name}} {{person.title}}
                 </div>
               </a>
             </div>

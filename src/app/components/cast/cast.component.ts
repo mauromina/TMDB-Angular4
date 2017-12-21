@@ -22,7 +22,7 @@ export class CastComponent implements OnInit {
   ngOnInit() {
     this.tmdbService.getMovieCreditsPerson(this.id)
       .subscribe(movies => {
-        this.movies = movies.cast;
+        this.movies = movies.cast.slice(0, 8);
       });
   }
 
@@ -38,14 +38,14 @@ export class CastComponent implements OnInit {
    * @return {:string} anio de lanzamiento de la pelicula*/
   getYear(movie: any): string {
     if (movie.release_date) return `(${movie.release_date.split('-')[0]})`;
-    return "";
+    return '';
   }
 
   /**Metodos encargados de redireccionar al usuario a otro componente
    * @param {id:number} identificador de un elemento dado para ser detallado
    * en el componente siguiente
    * @return {:void} */
-  goMovie(id: number): void{
+  goMovie(id: number): void {
     this.router.navigate(['/movie', id]);
   }
 

@@ -62,9 +62,17 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  goProfile(id: number): void {
+  goProfile(id: number, selecctor: string): void {
     this.clear();
-    this.router.navigate(['/profile', id]);
+    if (selecctor == 'person') {
+      this.router.navigate(['/multi', id]);
+    }
+    if (selecctor == 'movie') {
+      this.router.navigate(['/movie', id]);
+    }
+    if (selecctor == 'tv') {
+      this.router.navigate(['/movie', id]);
+    }
   }
 
   goPopularPersons(): void {

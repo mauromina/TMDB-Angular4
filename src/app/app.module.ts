@@ -18,9 +18,14 @@ import { SearchComponent } from './components/search/search.component';
 import { InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PipePipe } from './components/movie/pipe.pipe';
 import { MovieComponent } from './components/movie/movie.component';
+
 import { RatingModule} from 'ngx-bootstrap';
+import { TabsModule} from 'ngx-bootstrap';
+
 import { CastComponent } from './components/cast/cast.component';
 import { ThecrewComponent } from './components/thecrew/thecrew.component';
+import { MultiCardComponent } from './components/multi-card/multi-card.component';
+import { TvSeriesComponent } from './tv-series/tv-series.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,8 @@ import { ThecrewComponent } from './components/thecrew/thecrew.component';
     MovieComponent,
     CastComponent,
     ThecrewComponent,
+    MultiCardComponent,
+    TvSeriesComponent,
 
   ],
   imports: [
@@ -43,6 +50,7 @@ import { ThecrewComponent } from './components/thecrew/thecrew.component';
     MaterialModule,
     InfiniteScrollModule,
     RatingModule,
+    TabsModule,
     RouterModule.forRoot(ROUTES, { useHash: false })
   ],
   providers: [
