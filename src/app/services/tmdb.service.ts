@@ -17,8 +17,8 @@ export class TmdbService {
    * @param {query:string} Cadena que conforma la busqueda a ser realizada por el metodo
    * @return {:string} Devuelve el resultado de la consulta a la api en formato json
    * */
-   get(search: string, extra_puts = ""): Observable<any> {
-     return this.http.get(`${this.url}${search}?api_key=${this.apiKey}&language=${this.language}${extra_puts}`)
+   get(search: string, page = '1', extra_puts = ''): Observable<any> {
+     return this.http.get(`${this.url}${search}?api_key=${this.apiKey}&page=${page}&language=${this.language}${extra_puts}`)
       .map(response => {
         return response.json();
       });
@@ -30,12 +30,12 @@ export class TmdbService {
    * @param {page:string} Pagina de la consulta en caso de ser paginacion
    * @return {:string} Devuelve el resultado del metodo get (json)
    * */
-  getPopularMovies(): Observable<any> {
-    return this.get("movie/popular");
+  getPopularMovies(page: string): Observable<any> {
+    return this.get('movie/popular', page);
   }
 
-  getPopularPersons(): Observable<any> {
-    return this.get("person/popular");
+  getPopularPersons(page: string): Observable<any> {
+    return this.get('person/popular', page);
   }
 
   getDetailPerson(id: string): Observable<any> {
@@ -46,7 +46,7 @@ export class TmdbService {
     return this.get(`person/${id}/movie_credits`);
   }
 
-  getSearchPerson(query: string, page="1"): Observable<any> {
+  getSearchPerson(query: string, page = '1'): Observable<any> {
     return this.get(
       `search/person`,
       `&query=${query}&page=${page}&include_adult=${this.adult}`
@@ -66,15 +66,15 @@ export class TmdbService {
   }
 
   getTopMovies(): Observable<any> {
-    return this.get("movie/top_rated");
+    return this.get('movie/top_rated');
   }
 
   getUpcomingMovies(): Observable<any> {
-    return this.get("movie/upcoming");
+    return this.get('movie/upcoming');
   }
 
   getNowplayingMovies(): Observable<any> {
-    return this.get("movie/now_playing");
+    return this.get('movie/now_playing');
   }
 
   getSimilarMovies(id): Observable<any> {

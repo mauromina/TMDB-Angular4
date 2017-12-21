@@ -24,12 +24,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tmdbService.getPopularMovies()
+    this.tmdbService.getPopularMovies('1')
       .subscribe(movies => {
         this.movies = movies.results.slice(0, 4);
 
       });
-    this.tmdbService.getPopularPersons()
+    this.tmdbService.getPopularPersons('1')
       .subscribe(persons => {
         this.persons = persons.results.slice(0, 4);
       });
