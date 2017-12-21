@@ -20,5 +20,6 @@ export const  ROUTES: Routes = [
   { path: 'movies1/:filter',  component: PopularMoviesComponent },
   { path: 'movies2/:filter',  component: PopularMoviesComponent },
   { path: 'movies3/:filter',  component: PopularMoviesComponent },
+  { path: 'movies4/serie/:id',  component: PopularMoviesComponent },
   { path: '**', redirectTo: 'home' }
 ];

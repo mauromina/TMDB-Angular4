@@ -88,7 +88,9 @@ export class TmdbService {
   getSimilarMovies(id, page: string): Observable<any> {
     return this.get(`movie/${id}/similar`, page );
   }
-
+  getSimilarTv(id, page: string): Observable<any> {
+    return this.get(`tv/${id}/similar`, page );
+  }
   getCastPersons(id): Observable<any> {
     return this.get(`movie/${id}/credits`);
   }

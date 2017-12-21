@@ -106,6 +106,18 @@ getMoviesPopular(): void {
     this.pageCurrent += 1;
     this.title = 'Recomend Movies';
   }
+  getMoviesSimilarTv(): void {
+    this.tmdbService.getSimilarTv(this.id, this.pageCurrent.toString() )
+      .subscribe(movies => {
+        const currentMovies = this.movies.getValue();
+        const  newMovies = movies.results.slice(0, 24);
+        this.movies.next( _.concat(currentMovies, newMovies));
+
+      });
+    // Cambio de pagina para el infinte scroll
+    this.pageCurrent += 1;
+    this.title = 'Recomend Movies';
+  }
   onScroll (): void {
       this.getMovies();
   }
@@ -128,8 +140,10 @@ getMoviesPopular(): void {
       case 'similar':
         this.getMoviesSimilarMovies();
         break;
+      case 'serie':
+        this.getMoviesSimilarTv();
+        break;
       default:
-
         this.getMoviesSimilarMovies();
     }
   }

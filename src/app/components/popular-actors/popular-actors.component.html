@@ -1,3 +1,29 @@
-<p>
-  popular-actors works!
-</p>
+<div class="component" *ngIf="persons">
+  <br>
+  <br>
+  <h2>{{title}} </h2>
+
+  <mat-grid-list cols="4" >
+    <mat-grid-tile [style.background-image]="'url('+tmdbHelper.getUrlSrc(person.profile_path)+')'" (click)="goProfile(person.id);" *ngFor="let person of persons | async">
+       <span class="subtittle">
+           <p class="subtittle-text">
+               {{person.name}}
+           </p>
+
+       </span>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="12"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()">
+</div>
+<div *ngIf="!finished">
+  Loading more movies...
+</div>
+<div *ngIf="finished">
+  End of database... That's all folks!
+</div>
