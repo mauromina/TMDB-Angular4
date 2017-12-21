@@ -1,7 +1,7 @@
 <div>
 
-  <mat-toolbar color="primary">
-    <span>  TMDB </span>
+  <mat-toolbar color="primary" class= "fixed-header">
+    <h2>  TMDB </h2>
     <mat-icon ></mat-icon>
     <!-- Formualario de Busqueda-->
     <form class="navbar-form navbar-left">
@@ -20,7 +20,7 @@
         </div>
         <div class="input-group-btn">
           <button class="btn btn-default" (click)="clear()">
-            <i class="glyphicon glyphicon-remove"></i>
+            <i class="glyphicon glyphicon-search"></i>
           </button>
         </div>
       </div>
@@ -31,22 +31,16 @@
     </button>
   </mat-toolbar>
 
-
   <mat-menu x-position="before" #menu="matMenu">
-    <button (click)="openPopularsMovies()"mat-menu-item>Popular Movies</button>
+    <button (click)="goPopularMovies()" mat-menu-item>Popular Movies</button>
     <button (click)="openMenu()" mat-menu-item>Popular Actors</button>
     <button (click)="openMenu()"mat-menu-item>About Me</button>
   </mat-menu>
 
-
-
   <span class="done">
-    <button mat-fab>
-      <mat-icon>check circle</mat-icon>
+    <button mat-fab (click)= "goHome()">
+      <mat-icon>home</mat-icon>
     </button>
   </span>
+
 </div>
-
-
-
-
