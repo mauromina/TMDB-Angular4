@@ -7,8 +7,8 @@ import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
-import { TmdbService } from './Services/tmdb.service';
-import { HelperDefault } from './Services/helper-default';
+import { TmdbService } from './services/tmdb.service';
+import { HelperDefault } from './services/helper-default';
 
 import { PopularMoviesComponent } from './components/popular-movies/popular-movies.component';
 import { PopularActorsComponent } from './components/popular-actors/popular-actors.component';

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TmdbService } from '../../Services/tmdb.service';
-import { HelperDefault } from '../../Services/helper-default';
+import { TmdbService } from '../../services/tmdb.service';
+import { HelperDefault } from '../../services/helper-default';
 import { Router} from '@angular/router';
 
 @Component({

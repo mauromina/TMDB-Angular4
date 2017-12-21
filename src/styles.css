@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+
+
+
 body {
-    margin: 3%;
+    margin: 5%;
     font-family: Roboto, sans-serif;
     background: url(assets/images/background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -21,17 +25,14 @@ body {
     justify-content: space-between;
   }
 
-  .done {
+.done {
     position: fixed;
     bottom: 20px;
     right: 20px;
     color: white;
   }
-.component{
-  padding: 0 15%;
-}
 
-md-grid-tile{
+mat-grid-tile{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -39,23 +40,23 @@ md-grid-tile{
 }
 
 .subtittle{
-  background-color:rgba(0,0,0,0.2);
+  background-color:rgba(0,0,0,0.5);
   position: absolute;
-  bottom: 1%;
+  bottom: 0;
   width: 100%;
 }
-
 .subtittle-text{
   text-align: center;
   color: white;
   font-weight: bold;
   margin: 0 auto;
-  padding: 3%;
-  font-family: "Noto Sans",Helvetica,Arial,sans-serif !important;
+  padding: 5%;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
-mat-grid-tile{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  cursor: pointer;
+
+h1{
+  text-align: center;
+}
+.component{
+  padding: 0 12%;
 }
