@@ -7,11 +7,13 @@ import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
-import { TmdbService } from './tmdb.service';
-import { HelperDefault } from './helper-default';
+import { TmdbService } from './Services/tmdb.service';
+import { HelperDefault } from './Services/helper-default';
 
-import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
-import { PopularActorsComponent } from './popular-actors/popular-actors.component';
+import { PopularMoviesComponent } from './components/popular-movies/popular-movies.component';
+import { PopularActorsComponent } from './components/popular-actors/popular-actors.component';
+import { HomeComponent } from './components/home/home.component';
+import { ROUTES } from './app.routing';
 
 
 @NgModule({
@@ -19,14 +21,16 @@ import { PopularActorsComponent } from './popular-actors/popular-actors.componen
     AppComponent,
     PopularMoviesComponent,
     PopularActorsComponent,
-    
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forRoot(ROUTES, { useHash: false })
 
   ],
   providers: [

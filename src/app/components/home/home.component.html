@@ -1,0 +1,34 @@
+<div>
+  <mat-toolbar color="primary">
+    <span>  TMDB </span>
+    <mat-icon ></mat-icon>
+
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-toolbar>
+
+
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item>Popular Movies</button>
+    <button mat-menu-item>Categories</button>
+    <button mat-menu-item>About Me</button>
+  </mat-menu>
+
+  <mat-card>
+    <button mat-button>Categorias</button>
+    <button mat-raised-button>Of</button>
+    <button mat-raised-button color="primary">The</button>
+    <button mat-raised-button color="accent">Buttons</button>
+  </mat-card>
+
+  <span class="done">
+    <button mat-fab>
+      <mat-icon>check circle</mat-icon>
+    </button>
+  </span>
+</div>
+<div>
+
+  <app-popular-movies></app-popular-movies>
+</div>
