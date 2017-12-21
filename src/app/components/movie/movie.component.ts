@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { TmdbService } from '../../services/tmdb.service';
 import { HelperDefault } from '../../services/helper-default';
 import {ActivatedRoute, Params } from '@angular/router';
@@ -8,13 +8,14 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
-export class MovieComponent implements OnInit {
+export class MovieComponent implements OnInit, OnChanges {
 
 
   private movie: any;
   private video: any;
   private maxPopularity = 5;
   private subscription: Subscription;
+  @Input() id: string;
 
   constructor(
     private tmdbService: TmdbService,
@@ -50,5 +51,9 @@ export class MovieComponent implements OnInit {
   getUrlYoutube(): string {
     return `https://www.youtube.com/embed/${this.video.key}`;
   }
+
+  ngOnChanges(): void {
+  this.ngOnInit();
+}
 
 }

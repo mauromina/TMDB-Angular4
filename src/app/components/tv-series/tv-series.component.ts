@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { TmdbService } from '../../services/tmdb.service';
 import { HelperDefault } from '../../services/helper-default';
 import { Subscription } from 'rxjs/Subscription';
@@ -11,7 +11,7 @@ import * as _ from 'lodash';
   templateUrl: './tv-series.component.html',
   styleUrls: ['./tv-series.component.css']
 })
-export class TvSeriesComponent implements OnInit {
+export class TvSeriesComponent implements OnInit, OnChanges {
   private serie: any;
   private image: string;
   private maxPopularity = 5;
@@ -53,6 +53,7 @@ export class TvSeriesComponent implements OnInit {
 
   goMovie(id: number): void {
     this.router.navigate(['/serie', id]);
+    window.scrollTo(0, 0);
   }
   getMoviesSimilarTv(): void {
     this.tmdbService.getSimilarTv(this.idLocal ,this.pageCurrent.toString() )
@@ -72,5 +73,8 @@ export class TvSeriesComponent implements OnInit {
   getMovies(): void {
     this.getMoviesSimilarTv();
     this.pageCurrent += 1;
+  }
+  ngOnChanges(): void {
+    this.ngOnInit();
   }
 }

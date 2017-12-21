@@ -43,6 +43,7 @@ export class PopularMoviesComponent implements OnInit, OnChanges  {
 
   goMovie(id: number): void {
     this.router.navigate(['/movie', id]);
+    window.scrollTo(0, 0);
   }
 getMoviesPopular(): void {
   this.tmdbService.getPopularMovies(this.pageCurrent.toString())
@@ -146,6 +147,7 @@ getMoviesPopular(): void {
       default:
         this.getMoviesSimilarMovies();
     }
+
   }
 
   ngOnChanges(): void {

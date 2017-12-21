@@ -15,6 +15,7 @@ export const  ROUTES: Routes = [
   { path: 'movies/:filter',  component: PopularMoviesComponent },
   { path: 'movie/:id', component: MovieComponent },
   { path: 'serie/:id', component: TvSeriesComponent },
+  { path: 'serie1/:id', component: TvSeriesComponent },
   { path: 'profile/:id', component: MultiCardComponent },
   { path: 'multi/:id', component: MultiCardComponent },
   { path: 'movies1/:filter',  component: PopularMoviesComponent },

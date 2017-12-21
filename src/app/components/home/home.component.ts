@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges} from '@angular/core';
 import { TmdbService } from '../../services/tmdb.service';
 import { HelperDefault } from '../../services/helper-default';
 import { Router} from '@angular/router';
