@@ -10,17 +10,11 @@
 
 
   <mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item>Popular Movies</button>
-    <button mat-menu-item>Categories</button>
-    <button mat-menu-item>About Me</button>
+    <button (click)="openPopularMovies()"mat-menu-item>Popular Movies</button>
+    <button (click)="openPopularActors()" mat-menu-item>Popular Actors</button>
+    <button (click)="openMenu()"mat-menu-item>About Me</button>
   </mat-menu>
 
-  <mat-card>
-    <button mat-button>Categorias</button>
-    <button mat-raised-button>Of</button>
-    <button mat-raised-button color="primary">The</button>
-    <button mat-raised-button color="accent">Buttons</button>
-  </mat-card>
 
   <span class="done">
     <button mat-fab>
@@ -30,5 +24,36 @@
 </div>
 <div>
 
-  <app-popular-movies></app-popular-movies>
+  <div class="component" *ngIf="movies">
+    <h2>{{titleMovie}} </h2>
+
+    <mat-grid-list cols="4" >
+      <mat-grid-tile [style.background-image]="'url('+tmdbHelper.getUrlSrc(movie.poster_path)+')'" (click)="goMovie(movie.id);" *ngFor="let movie of movies">
+       <span class="subtittle">
+           <p class="subtittle-text">
+               {{movie.original_title}}
+           </p>
+
+       </span>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
 </div>
+
+<div class="component" *ngIf="persons">
+  <h2>{{titlePerson}} </h2>
+
+  <mat-grid-list cols="4" >
+    <mat-grid-tile [style.background-image]="'url('+tmdbHelper.getUrlSrc(person.profile_path)+')'" (click)="goProfile(person.id);" *ngFor="let person of persons">
+       <span class="subtittle">
+           <p class="subtittle-text">
+               {{person.name}}
+           </p>
+
+       </span>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
