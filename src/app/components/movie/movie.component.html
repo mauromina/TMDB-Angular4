@@ -1,0 +1,34 @@
+<div class="row" *ngIf="movie">
+  <div class="col-md-4">
+    <mat-card>
+      <img md-card-image src="{{tmdbHelper.getUrlSrc(movie.backdrop_path)}}">
+      <mat-card-subtitle *ngIf="movie.tagline">{{movie.tagline}}</mat-card-subtitle>
+      <mat-card-content>
+        <span *ngIf="movie.status"> <label>Status: </label>{{movie.status}}</span>
+        <br>
+        <span *ngIf="movie.popularity"><label>Popularity: </label> <rating [ngModel]="movie.popularity" [max]="maxPopularity"></rating></span>
+        <br>
+        <span *ngIf="movie.production_companies"><label>Production companies: </label> <p *ngFor="let companie of movie.production_companies">{{companie.name}} <br></p></span>
+        <br>
+        <label *ngIf="movie.genres">Genres: </label>
+        <p *ngFor="let genre of movie.genres">{{genre.name}}</p>
+      </mat-card-content>
+      <div *ngIf="movie">
+        <persons-cards [filter]="'cast'" [id]="movie.id"></persons-cards>
+      </div>
+    </mat-card>
+
+  </div>
+  <div class="col-md-8">
+    <h1>{{movie.original_title}} ({{movie.year}})</h1> <br>
+    <h3>Sypnosis</h3>
+    <p>{{movie.overview}}</p>
+    <div *ngIf="movie">
+      <movie-cards [filter]="'similar'" [id]="movie.id"></movie-cards>
+    </div>
+    <div *ngIf="video">
+      <h2>{{video.name}} ({{video.type}})</h2>
+      <iframe class="video" [src]="getUrlYoutube() | safe" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>

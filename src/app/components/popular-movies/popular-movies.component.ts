@@ -34,8 +34,9 @@ export class PopularMoviesComponent implements OnInit, OnChanges  {
   ngOnInit() {
     this.subscription = this.route.params.subscribe((param: any) => {
       if (!this.filter) this.filter = param['filter'];
+      this.getMovies();
     });
-  this.getMovies();
+
   }
 
   goMovie(id: number): void {
@@ -98,7 +99,6 @@ getMoviesPopular(): void {
 /*Detecta cambios en los filtros*/
 
   getMovies(): void {
-  console.log(this.filter);
     switch (this.filter) {
       case 'popular':
         this.getMoviesPopular();
@@ -118,7 +118,6 @@ getMoviesPopular(): void {
   }
 
   ngOnChanges(): void {
-    console.log('Un Cambio:  ');
     this.filter = '';
     this.ngOnInit();
   }

@@ -76,15 +76,16 @@ export class SearchComponent implements OnInit {
   }
 
   goTopMovies(): void {
-    this.router.navigate(['/movies', 'top']);
+    this.router.navigate(['/movies1', 'top']);
   }
 
   goUpComingMovies(): void {
-    this.router.navigate(['/movies', 'upcoming']);
+    this.router.navigate(['/movies2', 'upcoming']);
   }
 
   goNowPlaying(): void {
-    this.router.navigate(['/movies', 'nowplaying']);
+    this.router.navigate(['/movies3', 'nowplaying']);
+
   }
 
 }

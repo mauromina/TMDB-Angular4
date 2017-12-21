@@ -17,6 +17,7 @@ import { ROUTES } from './app.routing';
 import { SearchComponent } from './components/search/search.component';
 import { InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PipePipe } from './components/popular-movies/pipe.pipe';
+import { MovieComponent } from './components/movie/movie.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { PipePipe } from './components/popular-movies/pipe.pipe';
     HomeComponent,
     SearchComponent,
     PipePipe,
+    MovieComponent,
 
   ],
   imports: [
