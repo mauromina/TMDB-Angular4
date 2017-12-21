@@ -14,7 +14,7 @@ import { PopularMoviesComponent } from './components/popular-movies/popular-movi
 import { PopularActorsComponent } from './components/popular-actors/popular-actors.component';
 import { HomeComponent } from './components/home/home.component';
 import { ROUTES } from './app.routing';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({

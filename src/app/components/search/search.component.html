@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" (click)="goHome();">TMDB</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li dropdown>
+        <a href id="simple-dropdown" dropdownToggle>
+          Persons
+        </a>
+        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+          <li>
+            <a class="dropdown-item" (click)="goPopularPersons();">Popular persons</a>
+          </li>
+        </ul>
+      </li>
+      <li dropdown>
+        <a href id="simple-dropdown" dropdownToggle>
+          Movies
+        </a>
+        <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+          <li>
+            <a class="dropdown-item" (click)="goPopularMovies();">Popular movies</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="goTopMovies();">Top movies</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="goUpComingMovies();">Upcoming movies</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="goNowPlaying();">Now playing movies</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <form class="navbar-form navbar-left">
+      <div class="input-group">
+        <div class="searching">
+          <input type="text" class="form-control" placeholder="Search an actor" [(ngModel)]="query" name="query" (ngModelChange)="queryTyping()">
+          <div *ngIf="persons" class="pull-right query-list">
+            <div class="person-tile" *ngFor="let person of persons">
+              <a (click)="goProfile(person.id);">
+                <div class="profile-image">
+                  <img src="{{tmdbHelper.getUrlSrc(person.profile_path)}}" style="width: 25px; margin-right: 10px;" />{{person.name}}
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="input-group-btn">
+          <button class="btn btn-default" (click)="clear()">
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
