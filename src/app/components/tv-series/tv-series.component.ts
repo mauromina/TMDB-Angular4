@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TmdbService } from '../../services/tmdb.service';
 import { HelperDefault } from '../../services/helper-default';
 import { Subscription } from 'rxjs/Subscription';
@@ -20,6 +20,8 @@ export class TvSeriesComponent implements OnInit {
   private title: string;
   private pageCurrent: number;
   private idLocal: string;
+  private finished = false ; // boolean when end of database is reached
+  @Input() id: string;
 
   constructor(
     private tmdbService: TmdbService,
@@ -27,7 +29,10 @@ export class TvSeriesComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
 
-  ) { }
+  ) {
+    this.pageCurrent = 1;
+    this.title = 'Recomend Series';
+  }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe((param: any) => {
@@ -39,6 +44,7 @@ export class TvSeriesComponent implements OnInit {
           this.serie = serie;
         });
     });
+    this.getMoviesSimilarTv();
   }
   /**Metodos encargados de redireccionar al usuario a otro componente
    * @param {id:number} identificador de un elemento dado para ser detallado
@@ -49,7 +55,7 @@ export class TvSeriesComponent implements OnInit {
     this.router.navigate(['/serie', id]);
   }
   getMoviesSimilarTv(): void {
-    this.tmdbService.getSimilarTv(this.idLocal , this.pageCurrent.toString() )
+    this.tmdbService.getSimilarTv(this.idLocal ,this.pageCurrent.toString() )
       .subscribe(movies => {
         const currentMovies = this.movies.getValue();
         const  newMovies = movies.results.slice(0, 24);
@@ -58,12 +64,13 @@ export class TvSeriesComponent implements OnInit {
       });
     // Cambio de pagina para el infinte scroll
     this.pageCurrent += 1;
-    this.title = 'Recomend Movies';
+
   }
   onScroll (): void {
     this.getMovies();
   }
   getMovies(): void {
     this.getMoviesSimilarTv();
+    this.pageCurrent += 1;
   }
 }
