@@ -25,7 +25,7 @@ import { TabsModule} from 'ngx-bootstrap';
 import { CastComponent } from './components/cast/cast.component';
 import { ThecrewComponent } from './components/thecrew/thecrew.component';
 import { MultiCardComponent } from './components/multi-card/multi-card.component';
-import { TvSeriesComponent } from './tv-series/tv-series.component';
+import { TvSeriesComponent } from './components/tv-series/tv-series.component';
 
 @NgModule({
   declarations: [

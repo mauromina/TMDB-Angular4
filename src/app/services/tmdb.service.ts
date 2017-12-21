@@ -41,7 +41,9 @@ export class TmdbService {
   getDetailPerson(id: string): Observable<any> {
     return this.get(`person/${id}`);
   }
-
+  getDetailTv(id: string): Observable<any> {
+    return this.get(`tv/${id}`);
+  }
   getMovieCreditsPerson(id: string): Observable<any> {
     return this.get(`person/${id}/movie_credits`);
   }

@@ -64,6 +64,7 @@ export class SearchComponent implements OnInit {
 
   goProfile(id: number, selecctor: string): void {
     this.clear();
+    console.log(selecctor);
     if (selecctor == 'person') {
       this.router.navigate(['/multi', id]);
     }
@@ -71,7 +72,7 @@ export class SearchComponent implements OnInit {
       this.router.navigate(['/movie', id]);
     }
     if (selecctor == 'tv') {
-      this.router.navigate(['/movie', id]);
+      this.router.navigate(['/serie', id]);
     }
   }
 

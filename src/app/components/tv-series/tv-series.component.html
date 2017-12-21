@@ -1,0 +1,27 @@
+<div class="row" *ngIf="serie">
+  <div class="col-md-4">
+    <mat-card>
+      <mat-card-header>
+        <img mat-card-avatar src="{{tmdbHelper.getUrlSrc(serie.backdrop_path)}}">
+        <mat-card-title>{{serie.name}}</mat-card-title>
+      </mat-card-header>
+      <br>
+      <img mat-card-image src="{{tmdbHelper.getUrlSrc(serie.poster_path)}}">
+
+      <mat-card-content>
+        <span *ngIf="serie.popularity"><label>Popularity: </label> <rating [ngModel]="serie.popularity" [max]="maxPopularity"></rating> <br></span>
+        <label>Number of Episodes: </label> <p>{{serie.number_of_episodes}}</p>
+        <label>Number of Seasons: </label> <p>{{serie.number_of_seasons}}</p>
+        <label>Origin Country: </label> <p>{{serie.origin_country}}</p>
+        <span *ngIf="serie.last_air_date"><label>Last Air Date: </label> <p>{{serie.last_air_date}}</p></span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-md-8">
+    <h1>{{serie.name}}</h1>
+    <p>{{serie.overview}}</p>
+  </div>
+
+
+
+</div>
