@@ -29,9 +29,9 @@ export class SearchComponent implements OnInit {
    * @param {query:string} cadena que almacena la consult
    * @return {:void} */
   search(query: string): void {
-    this.tmdbService.getSearchPerson(query)
+    this.tmdbService.getSearchMulti(query)
       .subscribe(persons => {
-        this.persons = persons.results;
+        this.persons = persons.results.slice(0, 5);
       });
   }
 

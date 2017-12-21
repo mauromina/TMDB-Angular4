@@ -19,6 +19,8 @@ import { InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PipePipe } from './components/movie/pipe.pipe';
 import { MovieComponent } from './components/movie/movie.component';
 import { RatingModule} from 'ngx-bootstrap';
+import { CastComponent } from './components/cast/cast.component';
+import { ThecrewComponent } from './components/thecrew/thecrew.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { RatingModule} from 'ngx-bootstrap';
     SearchComponent,
     PipePipe,
     MovieComponent,
+    CastComponent,
+    ThecrewComponent,
 
   ],
   imports: [

@@ -52,6 +52,12 @@ export class TmdbService {
       `&query=${query}&page=${page}&include_adult=${this.adult}`
     );
   }
+  getSearchMulti(query: string, page = '1'): Observable<any> {
+    return this.get(
+      `search/multi`,
+      `&query=${query}&page=${page}&include_adult=${this.adult}`
+    );
+  }
 
   getImagesPerson(id: string): Observable<any> {
     return this.get(`person/${id}/images`);
