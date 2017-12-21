@@ -32,7 +32,11 @@
   </mat-toolbar>
 
   <mat-menu x-position="before" #menu="matMenu">
+    <button (click)="goHome()" mat-menu-item>Home</button>
     <button (click)="goPopularMovies()" mat-menu-item>Popular Movies</button>
+    <button (click)="goTopMovies()" mat-menu-item>Top Movies</button>
+    <button (click)="goNowPlaying()" mat-menu-item>Now Playing Movies</button>
+    <button (click)="goUpComingMovies()" mat-menu-item>Upcoming Movies</button>
     <button (click)="openMenu()" mat-menu-item>Popular Actors</button>
     <button (click)="openMenu()"mat-menu-item>About Me</button>
   </mat-menu>

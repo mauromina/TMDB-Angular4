@@ -65,16 +65,16 @@ export class TmdbService {
     return this.get(`movie/${id}/videos`);
   }
 
-  getTopMovies(): Observable<any> {
-    return this.get('movie/top_rated');
+  getTopMovies(page: string): Observable<any> {
+    return this.get('movie/top_rated', page);
   }
 
-  getUpcomingMovies(): Observable<any> {
-    return this.get('movie/upcoming');
+  getUpcomingMovies(page: string): Observable<any> {
+    return this.get('movie/upcoming', page);
   }
 
-  getNowplayingMovies(): Observable<any> {
-    return this.get('movie/now_playing');
+  getNowplayingMovies(page: string): Observable<any> {
+    return this.get('movie/now_playing', page);
   }
 
   getSimilarMovies(id): Observable<any> {

@@ -1,7 +1,7 @@
 <div class="component" *ngIf="movies">
 <h2>{{title}} </h2>
 
-<mat-grid-list cols="4" >
+<mat-grid-list cols="3" >
     <mat-grid-tile [style.background-image]="'url('+tmdbHelper.getUrlSrc(movie.poster_path)+')'" (click)="goMovie(movie.id);" *ngFor="let movie of movies | async">
        <span class="subtittle">
            <p class="subtittle-text">

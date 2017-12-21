@@ -8,6 +8,6 @@ export const  ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home',  component: HomeComponent },
   { path: 'actors',  component: PopularActorsComponent },
-  { path: 'movies',  component: PopularMoviesComponent },
+  { path: 'movies/:filter',  component: PopularMoviesComponent },
   { path: '**', redirectTo: 'home' }
 ];
