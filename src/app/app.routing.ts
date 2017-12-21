@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { PopularActorsComponent} from './components/popular-actors/popular-actors.component';
 import { PopularMoviesComponent} from './components/popular-movies/popular-movies.component';
 

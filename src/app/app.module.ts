@@ -15,7 +15,7 @@ import { PopularActorsComponent } from './components/popular-actors/popular-acto
 import { HomeComponent } from './components/home/home.component';
 import { ROUTES } from './app.routing';
 import { SearchComponent } from './components/search/search.component';
-import { InfiniteScrollModule} from "ngx-infinite-scroll";
+import { InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PipePipe } from './components/popular-movies/pipe.pipe';
 
 
@@ -35,9 +35,8 @@ import { PipePipe } from './components/popular-movies/pipe.pipe';
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
-    RouterModule.forRoot(ROUTES, { useHash: false }),
-    InfiniteScrollModule
-
+    InfiniteScrollModule,
+    RouterModule.forRoot(ROUTES, { useHash: false })
   ],
   providers: [
     TmdbService,

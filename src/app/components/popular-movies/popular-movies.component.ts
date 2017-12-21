@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges} from '@angular/core';
 import { TmdbService } from '../../services/tmdb.service';
 import { HelperDefault } from '../../services/helper-default';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -11,14 +11,15 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './popular-movies.component.html',
   styleUrls: ['./popular-movies.component.css']
 })
-export class PopularMoviesComponent implements OnInit {
+export class PopularMoviesComponent implements OnInit, OnChanges  {
   @Input() filter: string;
-  @Input()  id: string;
+  @Input() id: string;
   private movies = new BehaviorSubject([]);
   private title: string;
   private pageCurrent: number;
   private finished = false ; // boolean when end of database is reached
   private subscription: Subscription;
+  private filtroOld: string;
 
   constructor(
     private tmdbService: TmdbService,
@@ -31,7 +32,6 @@ export class PopularMoviesComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.subscription = this.route.params.subscribe((param: any) => {
       if (!this.filter) this.filter = param['filter'];
     });
@@ -76,7 +76,7 @@ getMoviesPopular(): void {
       });
     // Cambio de pagina para el infinte scroll
     this.pageCurrent += 1;
-    this.title = 'Similar Movies';
+    this.title = 'Now Playing Movies';
   }
 
   getMoviesUpcomingMovies(): void {
@@ -89,7 +89,7 @@ getMoviesPopular(): void {
       });
     // Cambio de pagina para el infinte scroll
     this.pageCurrent += 1;
-    this.title = 'Similar Movies';
+    this.title = 'Upcoming Movies';
   }
 
   onScroll (): void {
@@ -97,11 +97,8 @@ getMoviesPopular(): void {
   }
 /*Detecta cambios en los filtros*/
 
-
-
-
   getMovies(): void {
-    console.log(this.filter);
+  console.log(this.filter);
     switch (this.filter) {
       case 'popular':
         this.getMoviesPopular();
@@ -112,14 +109,17 @@ getMoviesPopular(): void {
       case 'nowplaying':
         this.getMoviesNowPlayingMovies();
         break;
+      case 'upcoming':
+        this.getMoviesUpcomingMovies();
+        break;
       default:
         this.getMoviesPopular();
     }
   }
 
-  ngOnChanges(changes: SimpleChanges): any {
-    this.filter = "similar";
+  ngOnChanges(): void {
+    console.log('Un Cambio:  ');
+    this.filter = '';
     this.ngOnInit();
   }
-
 }
