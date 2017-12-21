@@ -60,3 +60,7 @@ h1{
 .component{
   padding: 0 12%;
 }
+.form-control{
+  min-width: 25px;
+  width: 1250px;
+}
