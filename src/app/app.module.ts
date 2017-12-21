@@ -16,9 +16,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ROUTES } from './app.routing';
 import { SearchComponent } from './components/search/search.component';
 import { InfiniteScrollModule} from 'ngx-infinite-scroll';
-import { PipePipe } from './components/popular-movies/pipe.pipe';
+import { PipePipe } from './components/movie/pipe.pipe';
 import { MovieComponent } from './components/movie/movie.component';
-
+import { RatingModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,6 +38,7 @@ import { MovieComponent } from './components/movie/movie.component';
     BrowserAnimationsModule,
     MaterialModule,
     InfiniteScrollModule,
+    RatingModule,
     RouterModule.forRoot(ROUTES, { useHash: false })
   ],
   providers: [

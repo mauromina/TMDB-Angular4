@@ -48,7 +48,7 @@ export class MovieComponent implements OnInit {
    * la pelicula actual almacenada en la variable video
    * @return {:string} url del video de youtube*/
   getUrlYoutube(): string {
-    return `https://www.youtube.com/embed/${this.video.key}`
+    return `https://www.youtube.com/embed/${this.video.key}`;
   }
 
 }

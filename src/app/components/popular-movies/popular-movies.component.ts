@@ -33,7 +33,9 @@ export class PopularMoviesComponent implements OnInit, OnChanges  {
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe((param: any) => {
-      if (!this.filter) this.filter = param['filter'];
+      if (!this.filter) {
+        this.filter = param['filter'];
+      }
       this.getMovies();
     });
 
@@ -92,9 +94,20 @@ getMoviesPopular(): void {
     this.pageCurrent += 1;
     this.title = 'Upcoming Movies';
   }
+  getMoviesSimilarMovies(): void {
+    this.tmdbService.getSimilarMovies(this.id, this.pageCurrent.toString() )
+      .subscribe(movies => {
+        const currentMovies = this.movies.getValue();
+        const  newMovies = movies.results.slice(0, 24);
+        this.movies.next( _.concat(currentMovies, newMovies));
 
+      });
+    // Cambio de pagina para el infinte scroll
+    this.pageCurrent += 1;
+    this.title = 'Recomend Movies';
+  }
   onScroll (): void {
-    this.getMovies();
+      this.getMovies();
   }
 /*Detecta cambios en los filtros*/
 
@@ -112,8 +125,12 @@ getMoviesPopular(): void {
       case 'upcoming':
         this.getMoviesUpcomingMovies();
         break;
+      case 'similar':
+        this.getMoviesSimilarMovies();
+        break;
       default:
-        this.getMoviesPopular();
+
+        this.getMoviesSimilarMovies();
     }
   }
 

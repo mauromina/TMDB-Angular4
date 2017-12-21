@@ -77,8 +77,8 @@ export class TmdbService {
     return this.get('movie/now_playing', page);
   }
 
-  getSimilarMovies(id): Observable<any> {
-    return this.get(`movie/${id}/similar`);
+  getSimilarMovies(id, page: string): Observable<any> {
+    return this.get(`movie/${id}/similar`, page );
   }
 
   getCastPersons(id): Observable<any> {
