@@ -4,19 +4,29 @@
     <h2 (click)="goHome();">  TMDB </h2>
     <mat-icon ></mat-icon>
     <!-- Formualario de Busqueda-->
-    <form class="navbar-form navbar-left">
+    <form class="navbar-form input-group">
       <div class="input-group">
         <div class="searching">
-          <input type="text" class="form-control" placeholder="movie, person, series" [(ngModel)]="query" name="query" (ngModelChange)="queryTyping()">
-          <div *ngIf="persons" class="pull-right query-list">
-            <div class="person-tile" *ngFor="let person of persons">
-              <a (click)="goProfile(person.id, person.media_type);">
-                <div class="profile-image">
-                  <img src="{{tmdbHelper.getUrlSrc(person.poster_path)}}" style="width: 25px; margin-right: 10px;" />{{person.name}} {{person.title}}
-                </div>
-              </a>
+
+          <mat-input-container>
+
+            <input matInput type="text"
+                   placeholder="movie, person, series"
+                   [(ngModel)]="query" name="query"
+                   (ngModelChange)="queryTyping()"
+                   value=""
+            >
+
+            <div *ngIf="persons" class="pull-right query-list">
+              <div class="person-tile" *ngFor="let person of persons">
+                <a (click)="goProfile(person.id, person.media_type);">
+                  <div class="profile-image">
+                    <img src="{{tmdbHelper.getUrlSrc(person.poster_path)}}" style="width: 25px; margin-right: 10px;" />{{person.name}} {{person.title}}
+                  </div>
+                </a>
+              </div>
             </div>
-          </div>
+          </mat-input-container>
         </div>
         <div class="input-group-btn">
           <button class="btn btn-default" (click)="clear()">

@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
    * @return {:void} */
   queryTyping(): void {
     this.persons = [];
-    this.timer = Observable.timer(1000);
+    this.timer = Observable.timer(500);
     this.timer.subscribe(() => {
       if ( this.query ) this.search(this.query);
     });
