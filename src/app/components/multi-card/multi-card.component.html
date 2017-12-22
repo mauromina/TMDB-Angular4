@@ -1,0 +1,31 @@
+<div class="row" *ngIf="person">
+  <div class="col-md-4">
+    <mat-card>
+      <mat-card-header>
+        <img mat-card-avatar src="{{tmdbHelper.getUrlSrc(person.profile_path)}}">
+        <mat-card-title>{{person.name}}</mat-card-title>
+        <mat-card-subtitle *ngIf="person.birthday">{{person.birthday}} — {{person.deathday}}</mat-card-subtitle>
+      </mat-card-header>
+      <br>
+      <img mat-card-image *ngIf="image" src="{{tmdbHelper.getUrlSrc(image)}}">
+
+      <mat-card-content>
+        <span *ngIf="person.popularity"><label>Popularity: </label> <rating [ngModel]="person.popularity" [max]="maxPopularity"></rating> <br></span>
+        <label>Gender: </label> <p>{{person.gender}}</p>
+        <span *ngIf="person.place_of_birth"><label>Place of birth: </label> <p>{{person.place_of_birth}}</p></span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-md-8">
+    <h1>{{person.name}}</h1>
+    <p>{{person.biography}}</p>
+  </div>
+
+  <div class="col-md-8">
+    <h1>As Cast</h1>
+    <app-cast [id] = "person.id" > </app-cast>
+  </div>
+
+</div>
+
+

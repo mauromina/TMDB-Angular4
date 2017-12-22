@@ -1,0 +1,63 @@
+<div class="row" *ngIf="serie">
+  <div class="col-md-4">
+    <mat-card>
+      <mat-card-header>
+        <img mat-card-avatar src="{{tmdbHelper.getUrlSrc(serie.backdrop_path)}}">
+        <mat-card-title>{{serie.name}}</mat-card-title>
+      </mat-card-header>
+      <br>
+      <img mat-card-image src="{{tmdbHelper.getUrlSrc(serie.poster_path)}}">
+
+      <mat-card-content>
+        <span *ngIf="serie.popularity"><label>Popularity: </label> <rating [ngModel]="serie.popularity" [max]="maxPopularity"></rating> <br></span>
+        <label>Number of Episodes: </label> <p>{{serie.number_of_episodes}}</p>
+        <label>Number of Seasons: </label> <p>{{serie.number_of_seasons}}</p>
+        <label>Origin Country: </label> <p>{{serie.origin_country}}</p>
+        <span *ngIf="serie.last_air_date"><label>Last Air Date: </label> <p>{{serie.last_air_date}}</p></span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <div class="col-md-8">
+
+    <h1>{{serie.name}}</h1>
+    <br>
+    <h3> Sypnosis</h3>
+    <p>{{serie.overview}}</p>
+    <div class="component" *ngIf="movies">
+      <br>
+      <h2>{{title}} </h2>
+
+      <mat-grid-list cols="4" >
+        <mat-grid-tile [style.background-image]="'url('+tmdbHelper.getUrlSrc(movie.poster_path)+')'" (click)="goMovie(movie.id);" *ngFor="let movie of movies | async">
+       <span class="subtittle">
+           <p class="subtittle-text">
+               {{movie.original_name}}
+           </p>
+
+       </span>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+
+  </div>
+
+
+
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="12"
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()">
+  </div>
+  <div *ngIf="!finished">
+    Loading more movies...
+  </div>
+  <div *ngIf="finished">
+    End of database... That's all folks!
+  </div>
+</div>
+
+
+

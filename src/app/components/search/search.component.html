@@ -1,0 +1,51 @@
+<div>
+
+  <mat-toolbar color="primary" class= "fixed-header">
+    <h2 (click)="goHome();">  TMDB </h2>
+    <mat-icon ></mat-icon>
+    <!-- Formualario de Busqueda-->
+    <form class="navbar-form navbar-left">
+      <div class="input-group">
+        <div class="searching">
+          <input type="text" class="form-control" placeholder="movie, person, series" [(ngModel)]="query" name="query" (ngModelChange)="queryTyping()">
+          <div *ngIf="persons" class="pull-right query-list">
+            <div class="person-tile" *ngFor="let person of persons">
+              <a (click)="goProfile(person.id, person.media_type);">
+                <div class="profile-image">
+                  <img src="{{tmdbHelper.getUrlSrc(person.poster_path)}}" style="width: 25px; margin-right: 10px;" />{{person.name}} {{person.title}}
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="input-group-btn">
+          <button class="btn btn-default" (click)="clear()">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-menu x-position="before" #menu="matMenu">
+    <button (click)="goHome();" mat-menu-item>Home</button>
+    <button (click)="goPopularMovies();" mat-menu-item>Popular Movies</button>
+    <button (click)="goTopMovies();" mat-menu-item>Top Movies</button>
+    <button (click)="goNowPlaying();" mat-menu-item>Now Playing Movies</button>
+    <button (click)="goUpComingMovies();" mat-menu-item>Upcoming Movies</button>
+    <button (click)="goPopularsActors();" mat-menu-item>Popular Actors</button>
+    <button (click)="goAbout();" mat-menu-item>About Me</button>
+
+  </mat-menu>
+
+  <span class="done">
+    <button mat-fab (click)= "goHome()">
+      <mat-icon>home</mat-icon>
+    </button>
+  </span>
+
+</div>

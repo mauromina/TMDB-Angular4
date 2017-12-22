@@ -1,0 +1,37 @@
+
+<div>
+
+  <div class="component" *ngIf="movies">
+    <br>
+    <h2>{{titleMovie}} </h2>
+
+    <mat-grid-list cols="4" >
+      <mat-grid-tile [style.background-image]="'url('+tmdbHelper.getUrlSrc(movie.poster_path)+')'" (click)="goMovie(movie.id);" *ngFor="let movie of movies">
+       <span class="subtittle">
+           <p class="subtittle-text">
+               {{movie.original_title}}
+           </p>
+
+       </span>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+</div>
+
+<div class="component" *ngIf="persons">
+  <h2>{{titlePerson}} </h2>
+
+  <mat-grid-list cols="4" >
+    <mat-grid-tile [style.background-image]="'url('+tmdbHelper.getUrlSrc(person.profile_path)+')'" (click)="goProfile(person.id);" *ngFor="let person of persons">
+       <span class="subtittle">
+           <p class="subtittle-text">
+               {{person.name}}
+           </p>
+
+       </span>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
