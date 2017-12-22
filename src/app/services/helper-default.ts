@@ -1,6 +1,6 @@
 export class HelperDefault {
 
-    baseUrlSrc = 'http://image.tmdb.org/t/p/w300';
+    baseUrlSrc = 'https://image.tmdb.org/t/p/w300';
 
   constructor() { }
   /**Metodo encargado de devolver las url completas para los recursos
