@@ -1,4 +1,5 @@
 # TMDBAngular4
+Public Url: https://mauromina.github.io/TMDB-Angular4/home
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
 
