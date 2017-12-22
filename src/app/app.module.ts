@@ -26,6 +26,7 @@ import { CastComponent } from './components/cast/cast.component';
 import { ThecrewComponent } from './components/thecrew/thecrew.component';
 import { MultiCardComponent } from './components/multi-card/multi-card.component';
 import { TvSeriesComponent } from './components/tv-series/tv-series.component';
+import { AboutMeeComponent } from './components/about-mee/about-mee.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TvSeriesComponent } from './components/tv-series/tv-series.component';
     ThecrewComponent,
     MultiCardComponent,
     TvSeriesComponent,
+    AboutMeeComponent,
 
   ],
   imports: [

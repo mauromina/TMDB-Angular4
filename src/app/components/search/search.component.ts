@@ -99,8 +99,11 @@ export class SearchComponent implements OnInit {
     this.router.navigate(['/movies3', 'nowplaying']);
 
   }
-  goPopularsActors(){
+  goPopularsActors(): void{
     this.router.navigate(['/actors']);
+  }
+  goAbout(): void {
+    this.router.navigate(['aboutme']);
   }
 
 }

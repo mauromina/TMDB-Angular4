@@ -4,6 +4,7 @@ import { PopularMoviesComponent} from './components/popular-movies/popular-movie
 import { MovieComponent} from './components/movie/movie.component';
 import { MultiCardComponent} from './components/multi-card/multi-card.component';
 import { TvSeriesComponent } from './components/tv-series/tv-series.component';
+import {AboutMeeComponent} from './components/about-mee/about-mee.component';
 
 
 import {HomeComponent} from './components/home/home.component';
@@ -22,5 +23,6 @@ export const  ROUTES: Routes = [
   { path: 'movies2/:filter',  component: PopularMoviesComponent },
   { path: 'movies3/:filter',  component: PopularMoviesComponent },
   { path: 'movies4/serie/:id',  component: PopularMoviesComponent },
+  { path: 'aboutme',  component: AboutMeeComponent },
   { path: '**', redirectTo: 'home' }
 ];
