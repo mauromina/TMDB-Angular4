@@ -24,14 +24,17 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  /**Metodo encargado de generar la consulta con la informacion
-   * del actor otorgada
+  /*implementation of search text with observable
    * @param {query:string} cadena que almacena la consult
    * @return {:void} */
   search(query: string): void {
     this.tmdbService.getSearchMulti(query)
-      .subscribe(persons => {
-        this.persons = persons.results.slice(0, 5);
+      .filter( (query: string) => { return this.query.length > 2} )
+      .debounceTime(500)
+      .distinctUntilChanged()
+      .subscribe(
+        persons => {
+          this.persons = persons.results.slice(0, 5);
       });
   }
 
@@ -40,7 +43,7 @@ export class SearchComponent implements OnInit {
    * @return {:void} */
   queryTyping(): void {
     this.persons = [];
-    this.timer = Observable.timer(1000);
+    this.timer = Observable.timer(500);
     this.timer.subscribe(() => {
       if ( this.query ) this.search(this.query);
     });
@@ -64,14 +67,14 @@ export class SearchComponent implements OnInit {
 
   goProfile(id: number, selecctor: string): void {
     this.clear();
-    console.log(selecctor);
-    if (selecctor == 'person') {
+
+    if (selecctor === 'person') {
       this.router.navigate(['/multi', id]);
     }
-    if (selecctor == 'movie') {
+    if (selecctor === 'movie') {
       this.router.navigate(['/movie', id]);
     }
-    if (selecctor == 'tv') {
+    if (selecctor === 'tv') {
       this.router.navigate(['/serie', id]);
     }
   }
